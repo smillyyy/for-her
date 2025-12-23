@@ -1,0 +1,236 @@
+/* ===== Reset ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #f7b2b7, #fbd3d6, #00000020);
+  overflow: hidden;
+  position: relative;
+}
+
+/* ===== Main Container ===== */
+.container {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  gap: 20px;
+  max-width: 500px;
+  margin: 20px;
+  z-index: 2;
+  padding: 20px;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 40px rgba(255, 182, 193, 0.5);
+  position: relative;
+}
+
+/* ===== GIF ===== */
+.container img {
+  max-width: 300px;
+  width: 100%;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  animation: bounce 2s ease-in-out infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* ===== Text ===== */
+.container h1 {
+  font-size: 2.7rem;
+  color: #7a1f2b;
+  text-shadow: 0 2px 15px rgba(255,255,255,0.8);
+  animation: fadeIn 2s ease forwards;
+}
+
+.container p {
+  font-size: 1.4rem;
+  margin: 15px 0;
+  color: #4a1d24;
+  text-shadow: 0 1px 10px rgba(255,255,255,0.6);
+  line-height: 1.5;
+  animation: fadeIn 3s ease forwards;
+}
+
+blockquote {
+  font-size: 1.2rem;
+  color: #7a1f2b;
+  margin-top: 15px;
+  font-style: italic;
+  text-shadow: 0 1px 10px rgba(255,255,255,0.6);
+}
+
+/* ===== Buttons ===== */
+.container .btn {
+  display: flex;
+  gap: 25px;
+  margin-top: 10px;
+  flex-wrap: wrap; /* allow buttons to wrap on small screens */
+  justify-content: center; /* center buttons */
+}
+
+.btn a {
+  text-decoration: none;
+  color: #7a1f2b;
+  background: #fff;
+  padding: 15px 40px;
+  border-radius: 66px;
+  font-size: 1.4rem;
+  box-shadow: 0 5px 20px rgba(255, 182, 193, 0.6);
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 3;
+  white-space: nowrap;
+}
+
+.btn a:hover {
+  transform: scale(1.1);
+  background: #ffe4ea;
+  box-shadow: 0 10px 30px rgba(255, 105, 180, 0.8);
+}
+
+/* ===== Falling Hearts & Kisses ===== */
+.heart {
+  position: absolute;
+  top: -50px;
+  font-size: 2rem;
+  animation: fall linear infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(100vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* ===== Twinkling Stars ===== */
+.star {
+  position: absolute;
+  top: -20px;
+  font-size: 1.5rem;
+  color: gold;
+  animation: starFall linear infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+
+@keyframes starFall {
+  0% { transform: translateY(-20px) scale(1); opacity: 0; }
+  30% { opacity: 1; }
+  100% { transform: translateY(100vh) scale(0.5); opacity: 0; }
+}
+
+/* ===== Floating Petals ===== */
+.petals-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.petal {
+  position: absolute;
+  top: -30px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  opacity: 0;
+}
+
+.petal:nth-child(odd) { animation: floatPetals 8s linear infinite; }
+.petal:nth-child(even) { animation: floatPetals2 8s linear infinite; }
+.petal:nth-child(3n) { animation: floatPetals3 8s linear infinite; }
+
+.petal:nth-child(1) { background-color: #ff1493; left: 5%; animation-delay: 0s; }
+.petal:nth-child(2) { background-color: #ffb6c1; left: 15%; animation-delay: 0.5s; }
+.petal:nth-child(3) { background-color: #ffc0cb; left: 25%; animation-delay: 1s; }
+.petal:nth-child(4) { background-color: #ff69b4; left: 35%; animation-delay: 1.5s; }
+.petal:nth-child(5) { background-color: #ff1493; left: 45%; animation-delay: 2s; }
+.petal:nth-child(6) { background-color: #ffb6c1; left: 55%; animation-delay: 2.5s; }
+.petal:nth-child(7) { background-color: #ffc0cb; left: 65%; animation-delay: 3s; }
+.petal:nth-child(8) { background-color: #ff69b4; left: 75%; animation-delay: 3.5s; }
+.petal:nth-child(9) { background-color: #ff1493; left: 85%; animation-delay: 4s; }
+
+@keyframes floatPetals {
+  0% { transform: translateY(-30px) rotate(0deg); opacity: 0; }
+  50% { opacity: 1; }
+  100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+}
+
+@keyframes floatPetals2 {
+  0% { transform: translateY(-30px) translateX(20px) rotate(0deg); opacity: 0; }
+  50% { opacity: 1; }
+  100% { transform: translateY(100vh) translateX(-20px) rotate(360deg); opacity: 0; }
+}
+
+@keyframes floatPetals3 {
+  0% { transform: translateY(-30px) translateX(-20px) rotate(0deg); opacity: 0; }
+  50% { opacity: 1; }
+  100% { transform: translateY(100vh) translateX(20px) rotate(360deg); opacity: 0; }
+}
+
+/* ===== Corner Signature ===== */
+.signature {
+  position: fixed;
+  bottom: 10px;
+  right: 15px;
+  font-size: 0.85rem;
+  color: #ff1493;
+  font-style: italic;
+  z-index: 100;
+}
+
+/* ===== Responsive Mobile Styles ===== */
+@media (max-width: 600px) {
+  .container {
+    max-width: 90vw;
+    margin: 10px;
+    padding: 15px;
+    gap: 15px;
+  }
+  
+  .container h1 {
+    font-size: 2rem;
+  }
+  
+  .container p {
+    font-size: 1.1rem;
+  }
+  
+  .container img {
+    max-width: 100%;
+  }
+  
+  .btn a {
+    padding: 12px 25px;
+    font-size: 1.1rem;
+    flex: 1 1 100%;
+    max-width: 300px;
+    text-align: center;
+  }
+  
+  .container .btn {
+    gap: 15px;
+  }
+}
